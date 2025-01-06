@@ -6,6 +6,7 @@ Created on Fri Dec 13 15:22:07 2024
 """
 #Kniffel player
 
+##### NUR ZUM AUSPROBIEREN, HIIII ######
 
 class Kniffel_Player():
     def __init__(self, name):
