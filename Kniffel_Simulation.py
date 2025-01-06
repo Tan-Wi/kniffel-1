@@ -5,8 +5,8 @@ Created on Fri Dec 13 15:24:17 2024
 @author: nguyn
 """
 
-import sys
-sys.path.append(r'C:\Users\nguyn\Documents\Python Kurs\Kniffel')  # Pfad anpassen, wenn nötig
+import sys                                                                                  
+sys.path.append(r'C:\Users\nguyn\Documents\Python Kurs\Kniffel')  # Pfad anpassen, wenn nötig   
 import matplotlib.pyplot as plt  
 import Kniffel_Game
 import Kniffel_Player
@@ -23,6 +23,7 @@ if __name__ == '__main__':
     player_1_total_score = 0
     player_2_total_score = 0
     total_rounds = 0
+    tie = 0
     
     # Spiel erstellen
     game = Kniffel_Game.Kniffel_Game([player_1, player_2])
@@ -44,7 +45,8 @@ if __name__ == '__main__':
             wincounter[0] += 1
         elif game.evaluate_score(scoreboard, player_1) < game.evaluate_score(scoreboard, player_2):
             wincounter[1] += 1
-        else:
+        else: 
+            tie +=1       
         
     # Anzahl der Siege und der durchschnittlichen Punktzahlen   
     if total_rounds > 0:
@@ -53,6 +55,8 @@ if __name__ == '__main__':
         
         print(f'{player_1.name} hat {wincounter[0]} Mal gewonnen und dabei durchschnittlich {player_1_average_score} Punkte pro Spiel erzielt!')
         print(f'{player_2.name} hat {wincounter[1]} Mal gewonnen und dabei durchschnittlich {player_2_average_score} Punkte pro Spiel erzielt!')
+        if tie > 0:
+            print(f'Insgesamt gab es {tie} Mal ein Unentschieden.')
     else:
         print("No games were played.")
    
